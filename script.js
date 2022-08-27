@@ -12,17 +12,17 @@ window.addEventListener("load", function () {
     let fuelLevel = document.querySelector("input[name=fuelLevel]").value;
     let cargoMass = document.querySelector("input[name=cargoMass").value;
 
+    console.log(pilotName)
 
     form.addEventListener("submit", function (event) {
 
 
-        if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
+        if (pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === "") {
             alert("All fields are required!");
             event.preventDefault();
-        } else {
-            formSubmission(document, null, pilotName, copilotName, fuelLevel, cargoMass);
-            event.preventDefault();
         }
+            formSubmission(document, event, pilotName, copilotName, fuelLevel, cargoMass);
+            event.preventDefault();
 
 
     });
