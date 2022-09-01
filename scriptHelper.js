@@ -42,27 +42,29 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
         if ((validateInput(fuelLevel) === "Is a Number") && (validateInput(cargoLevel) === "Is a Number") && (validateInput(pilot) === "Not a Number") && (validateInput(copilot) === "Not a Number")) {
             document.getElementById("faultyItems").style.visibility = "visible"
-            document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready`
-            document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready`
+            document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`
+            document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`
 
 
-            if ((fuelLevel > 10000) && (cargoLevel < 10000)) {
-                journeyHeader.innerHTML = "Shuttle is ready for launch"
+            if ((fuelLevel >= 10000) && (cargoLevel <= 10000)) {
+                journeyHeader.innerHTML = "Shuttle is Ready for Launch"
                 journeyHeader.style.color = "green"
             } 
 
-            if (fuelLevel < 10000) {
-                document.getElementById("fuelStatus").innerHTML = `Not enough fuel for the journey. Fuel level should be > 10000.`
-                journeyHeader.innerHTML = "Shuttle not ready for launch"
-                journeyHeader.style.color = "red"
-
+            if (fuelLevel <= 10000) {
+                document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`
+                journeyHeader.innerHTML = "Shuttle Not Ready for Launch"
+                journeyHeader.style.color = "rgb(199, 37, 78)"
+            } else {
+                document.getElementById("cargoStatus").innerHTML = `Fuel level high enough for launch`
             }
 
-            if (cargoLevel > 10000) {
-                document.getElementById("cargoStatus").innerHTML = `Too much mass for lift off. Cargo mass should be < 10000.`
-                journeyHeader.innerHTML = "Shuttle not ready for launch"
-                journeyHeader.style.color = "red"
-
+            if (cargoLevel >= 10000) {
+                document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`
+                journeyHeader.innerHTML = "Shuttle Not Ready for Launch"
+                journeyHeader.style.color = "rgb(199, 37, 78)"
+            } else {
+                document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`
             }
 
 
