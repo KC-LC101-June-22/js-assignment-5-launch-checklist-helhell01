@@ -46,12 +46,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`
 
 
-            if ((fuelLevel >= 10000) && (cargoLevel <= 10000)) {
+            if ((fuelLevel > 10000) && (cargoLevel < 10000)) {
                 journeyHeader.innerHTML = "Shuttle is Ready for Launch"
-                journeyHeader.style.color = "green"
+                journeyHeader.style.color = "rgb(65, 159, 106)"
             } 
 
-            if (fuelLevel <= 10000) {
+            if (fuelLevel < 10000) {
                 document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`
                 journeyHeader.innerHTML = "Shuttle Not Ready for Launch"
                 journeyHeader.style.color = "rgb(199, 37, 78)"
@@ -59,7 +59,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
                 document.getElementById("cargoStatus").innerHTML = `Fuel level high enough for launch`
             }
 
-            if (cargoLevel >= 10000) {
+            if (cargoLevel > 10000) {
                 document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`
                 journeyHeader.innerHTML = "Shuttle Not Ready for Launch"
                 journeyHeader.style.color = "rgb(199, 37, 78)"
