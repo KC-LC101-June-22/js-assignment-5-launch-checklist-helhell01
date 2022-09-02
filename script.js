@@ -12,8 +12,7 @@ window.addEventListener("load", function () {
     let fuelLevel = document.querySelector("input[name=fuelLevel]").value;
     let cargoMass = document.querySelector("input[name=cargoMass").value;
 
-    console.log(pilotName)
-
+    document.getElementById("faultyItems").style.visibility = "hidden"
     form.addEventListener("submit", function (event) {
 
 
